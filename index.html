@@ -1,0 +1,63 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library Management System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+  <div class="container">
+    <header>
+      <h1>Library Management System</h1>
+      <div class="shopping">
+        <button class="cartButton" onclick="openCart()">Cart <span class="quantity">0</span></button>
+      </div>
+    </header>
+
+    <div class="search-container">
+      <input type="text" id="search" placeholder="Search books..." oninput="searchBooks(this.value)">
+      <ul id="suggestions"></ul>
+    </div>
+
+    <div class="filter-container">
+      <label for="filter">Filter by:</label>
+      <select id="filter" onchange="applyFilter()">
+        <option value="title">Title</option>
+        <option value="author">Author</option>
+        <option value="genre">Genre</option>
+        <option value="publishDate">Publish Date</option>
+      </select>
+    </div>
+
+    <div class="list" id="bookList">
+      
+    </div>
+  </div>
+
+  <div class="modal" id="bookModal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <div id="bookInfo"></div>
+      <button class="add-to-cart" onclick="addToCart()">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="cart-overlay" id="cartOverlay">
+    <div class="cart-content">
+      <h1>Cart</h1>
+      <ul class="listCard" id="cartList"></ul>
+      <div class="checkout">
+        <div class="total">0</div>
+        <button class="checkout-button" onclick="checkout()">Checkout</button>
+        <div class="closeShopping" onclick="closeCart()">Close</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
